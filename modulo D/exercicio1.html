@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTRAN</title>
+</head>
+<body>
+    <h1>Velocidade !</h1>
+    <input type="number" name="valor" id="valor">
+    <input type="button" value="Calcular" onclick="clicar()">
+    <div id="resp"></div>
+
+
+    <script>
+        function clicar(){
+            var valor = window.document.getElementById('valor')
+            var resp = window.document.getElementById('resp')
+
+            v1 = Number(valor.value)
+            var ult = (v1/60)*100
+
+            var p = (ult - 60)*15.25
+
+            resp.innerHTML = `A sua velocidade foi de<strong> ${v1}Km/h</strong> `
+            if(v1>60){
+                resp.innerHTML += `<p>Foi ultapassado ${ult}% do limite de velocidade <strong>60Km/h</strong></p>` 
+
+                resp.innerHTML += `<p>A pagar = ${p}$</p>` 
+            }
+
+        }
+    </script>
+</body>
+</html>

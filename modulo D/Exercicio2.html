@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrangeiro</title>
+</head>
+<body>
+    <h1>Estrangeiro do Amor</h1>
+    Digite o pais onde Voçê nasceu <input type="text" name="pais" id="pais">
+    <input type="button" value="Enviar" onclick="clicar()">
+    <div id="resp"></div>
+
+    <script>
+        function clicar(){
+            var p = window.document.getElementById('pais')
+            var rep = window.document.getElementById("resp")
+            p = String(p.value)
+
+            rep.innerHTML = `<p>Pais de nascimento = ${p}</p>`
+
+            if(p != 'Brasil'){
+                rep.innerHTML += '<p>Es um estrangeiro do amor meu queriodo!</p>'
+            } else{
+                rep.innerHTML += '<p>Olá amigo patriota</p>'
+            }
+
+        }
+    </script>
+    
+</body>
+</html>
