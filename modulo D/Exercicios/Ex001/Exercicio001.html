@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relogio</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            background-color: darksalmon;
+
+        }
+        main{
+            width: 70%;
+            height: 400px;
+            background-color: rgb(241, 241, 241);
+            margin: auto;
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 20px;
+            box-shadow: 1px 1px 5px rgb(41, 41, 41);
+        }
+        h1{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+            padding-top:5px ;
+        }
+        .caixa{
+            text-align: center;
+            margin-top: 35px;
+           
+        }
+        img{
+            width: 300px;
+            height: 300px;
+            border-radius: 80%;
+        }
+        h1{
+            color: white;
+            text-shadow: 1px 1px 1px rgb(0, 0, 0);
+        }
+    </style>
+
+</head>
+<body id="body">
+    <h1>HORA do dia</h1>
+    <main>
+        <p><strong id="texto">sao tantasa horas</strong></p>
+        <div class="caixa"><img id="img" src="woman-g176ef30a0_1920.jpg" alt=""> </div>
+    </main>
+
+    <script>
+        /* Comum */
+        var hora = new Date()
+        var agr = hora.getHours()
+        var min =  hora.getMinutes()
+        var text = window.document.getElementById("texto")
+        var body = window.document.getElementById('body')
+        var caixa = window.document.getElementsByClassName('caixa')
+
+        /* Day */
+        text.innerHTML = `São exatamente ${agr}:${min}`
+        text.innerHTML += '<p>Bom dia</p>' 
+
+                
+        if(agr >= 12 && agr <18){
+            text.innerHTML = `São exatamente ${agr}:${min}`
+            text.innerHTML += '<p>Boa Tarde</p>' 
+            document.getElementById('img').src="Tarde.jpg"
+            body.style.backgroundColor = 'rgb(233, 213, 122)'
+            
+        } else if (agr >= 18 && agr < 24){
+            text.innerHTML = `São exatamente ${agr}:${min}`
+            text.innerHTML += '<p>Boa Noite</p>' 
+            document.getElementById('img').src="noite .jpg"
+            body.style.backgroundColor = 'rgb(39, 39, 39)'
+        } else if(agr >= 0 && agr < 6){
+            text.innerHTML = `São exatamente ${agr}:${min}`
+            text.innerHTML += '<p>Boa madruga</p>' 
+            document.getElementById('img').src="Tarde.jpg"
+            body.style.backgroundColor = 'rgb(39, 39, 39)'
+
+        }
+    </script>
+</body>
+</html>
