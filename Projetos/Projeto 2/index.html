@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de idade</title>
+</head>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        
+        }
+
+
+
+        body{
+            background-color: rgb(72, 72, 249);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            color: white;
+            text-shadow: 1px 1px 1px black;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        main{
+            width: 70%;
+            height: 320px;
+            background-color: rgb(255, 255, 255);
+            margin: auto;
+            border-radius: 30px ;
+            box-shadow: 1px 1px 2px rgb(45, 45, 247);
+            padding: 30px;
+        }
+        footer{
+            color: white;
+            text-align: center;
+            margin-top: 5px;
+            text-shadow: 1px 1px 2px rgb(45, 45, 247);;
+        }
+        p{
+            margin-bottom: 10px;
+        }
+        .check{
+            margin: 0px;
+            word-spacing: 10px;
+            margin-bottom: 10px;
+        }
+        li{
+            display: inline-block;
+            word-spacing: 0px;
+            
+        }
+        #botao{
+            clear: both;
+        }
+
+        #img{
+            text-align: center;
+
+            
+
+        }
+        img{
+            border-radius: 50%;
+            height: 220px;
+            width: 220px; 
+        }
+        #escreva{
+            
+            margin-bottom: 5px;
+            height: 1.2em;
+        }
+    </style>
+<body>
+    <h1>Verificador de idade</h1>
+
+    <main>
+        <p><strong>Ano de Nascimento: </strong><input type="text" name="text" id="text">
+
+        <div class="check">
+            <li><strong>Sexo:</strong> </li>
+            <li>Masculino: <input type="checkbox" name="masculino" id="masculino" onclick="checkm()"></li>
+            <li>Feminino: <input type="checkbox" name="feminino" id="feminino" onclick="checkf()"></li>
+        </div>
+
+        <p id="botao"><input type="button" value="Verificar" onclick="clicar()"></p>
+
+        <div id="escreva"> </div>
+
+        <div id="img">  </div>
+
+    </main>
+
+
+
+<footer> By Vinicius Amorim</footer>
+
+
+
+<script>
+    
+    var data = new Date
+    var anod = data.getFullYear()
+
+
+    function clicar(){
+        var text = window.document.getElementById('text')
+        ano = Number(text.value)
+        var escreva = window.document.getElementById('escreva')
+
+        var masculino =window.document.getElementById('masculino')
+        var feminino=window.document.getElementById('feminino')
+
+        var img = window.document.getElementById('img')
+        
+        var idade = anod - ano
+
+        
+        if(masculino.checked){
+            var m = 1
+        } 
+        if(feminino.checked){
+            var f = 1
+        } 
+        if(m == f){
+            sexo = 'erro'
+        } else if(f == 1){
+            sexo = 'f'
+        } else{
+            sexo = 'm'
+        }
+
+
+        if(sexo == 'm' && idade>=20 && idade<30){
+            img.innerHTML = '<img src="h.webp" alt="">'
+            escreva.innerHTML=idade
+        } else
+    }
+
+</script>
+
+
+</body>
+</html>
