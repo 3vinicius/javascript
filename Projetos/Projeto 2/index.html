@@ -28,7 +28,7 @@
         }
 
         main{
-            width: 70%;
+            width: 450px;
             height: 320px;
             background-color: rgb(255, 255, 255);
             margin: auto;
@@ -74,6 +74,7 @@
             
             margin-bottom: 5px;
             height: 1.2em;
+            text-align: center;
         }
     </style>
 <body>
@@ -83,9 +84,9 @@
         <p><strong>Ano de Nascimento: </strong><input type="text" name="text" id="text">
 
         <div class="check">
-            <li><strong>Sexo:</strong> </li>
-            <li>Masculino: <input type="checkbox" name="masculino" id="masculino" onclick="checkm()"></li>
-            <li>Feminino: <input type="checkbox" name="feminino" id="feminino" onclick="checkf()"></li>
+            <li><strong>Sexo:</strong> 
+            <li>Masculino: <input type="checkbox" name="masculino" id="masculino" onclick="checkm()">
+            <li>Feminino: <input type="checkbox" name="feminino" id="feminino" onclick="checkf()">
         </div>
 
         <p id="botao"><input type="button" value="Verificar" onclick="clicar()"></p>
@@ -135,11 +136,46 @@
             sexo = 'm'
         }
 
+        if(idade > 0 && idade < 200){
+            switch(sexo){
+                case 'm' :
+                    if (idade < 18){
+                        img.innerHTML = '<img src="hc.jpg" alt="">'
+                        escreva.innerHTML = `Sua idade é de ${idade} anos`
+                        break
+                    } else if (idade >= 18 && idade < 60){
+                        img.innerHTML = '<img src="h.webp" alt="">'
+                        escreva.innerHTML = `Sua idade é de ${idade} anos`
+                        break
+                    } else{
+                        img.innerHTML = '<img src="hv.jpg" alt="">'
+                        escreva.innerHTML = `Sua idade é de ${idade} anos`
+                        break
+                    }      
+                case 'f' :
+                    if (idade < 18){
+                        img.innerHTML = '<img src="cf.jpg" alt="">'
+                        escreva.innerHTML = `Sua idade é de ${idade} anos`
+                        break
+                    } else if (idade >= 18 && idade < 60){
+                        img.innerHTML = '<img src="m.webp" alt="">'
+                        escreva.innerHTML = `Sua idade é de ${idade} anos`
+                        break
+                    } else{
+                        img.innerHTML = '<img src="mv.webp" alt="">'
+                        escreva.innerHTML = `Sua idade é de ${idade} anos`
+                        break
+                    }
+                case 'erro': 
+                    window.alert('Selecione apenas um unico sexo')
+                    break
+                   
+        }
+    }else{
+        window.alert('idade invalida')
+    }
 
-        if(sexo == 'm' && idade>=20 && idade<30){
-            img.innerHTML = '<img src="h.webp" alt="">'
-            escreva.innerHTML=idade
-        } else
+
     }
 
 </script>
