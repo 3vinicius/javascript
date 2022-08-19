@@ -1,8 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-// Exemplo de programa em C
-// Isto é uma linha de comentário
-void main()
-{ 
-   int a;            // declara a variável "a"
-   a = 3 + 2;        // soma 3 com 2
+int main(void){
+    int a =10;
+    printf("Contagem regressiva: ");
+    for(a = 10 ; a<=20 ; a+=1){
+        if (a%2 == 0){
+            printf("\n%d é par",a);
+        }
+        else
+            printf("\n%d é impar",a);
+
+    }
 }
